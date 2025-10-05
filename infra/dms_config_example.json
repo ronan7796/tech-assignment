@@ -1,0 +1,36 @@
+{
+  "ReplicationTaskIdentifier": "orders-cdc-postgres-to-s3",
+  "SourceEndpointArn": "arn:aws:dms:ap-southeast-1:123456789012:endpoint:SOURCE_POSTGRES",
+  "TargetEndpointArn": "arn:aws:dms:ap-southeast-1:123456789012:endpoint:TARGET_S3",
+  "MigrationType": "cdc",
+  "TableMappings": {
+    "rules": [
+      {
+        "rule-type": "selection",
+        "rule-id": "1",
+        "rule-name": "include-orders",
+        "object-locator": {
+          "schema-name": "public",
+          "table-name": "orders"
+        },
+        "rule-action": "include"
+      }
+    ]
+  },
+  "ReplicationTaskSettings": {
+    "TargetMetadata": {
+      "TargetSchema": "",
+      "SupportLobs": true,
+      "FullLobMode": false
+    },
+    "FullLoadSettings": {
+      "TargetTablePrepMode": "DO_NOTHING"
+    },
+    "Logging": {
+      "EnableLogging": true
+    },
+    "ControlTablesSettings": {
+      "historyTimeslotInMinutes": 5
+    }
+  }
+}
