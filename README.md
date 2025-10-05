@@ -10,15 +10,7 @@ This repo implements a POC pipeline:
 
 ## Setup (local)
 Create a virtualenv and install dependencies:
-
-# crawler deps
-pip install requests beautifulsoup4
-
-# etl deps
-pip install pandas pyarrow openpyxl
-
-# optional S3:
-pip install boto3
+pip install -r requirements.txt
 
 ## Run locally (simple)
 
